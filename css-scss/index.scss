@@ -1,5 +1,5 @@
 /* null styles */
-@import "null.scss";
+@import "./null.scss";
 
 header {
   background-color: $blue;
@@ -50,13 +50,12 @@ main {
         max-width: 100%;
         border: 1px solid $light_gray;
         padding: 8px 12px;
-        font-family: 'Spartan';
         color: $medium_gray;
         font-style: italic;
         border-radius: 8px;
         letter-spacing: 2px;
       }
-      a#go_button {
+      #go_button {
         margin: 0 auto;
         width: 250px;
         max-width: 100%;
@@ -64,7 +63,6 @@ main {
         background-color: $blue;
         border-radius: 10px;
         border: none;
-        font-family: 'Spartan';
         color: #fff;
         padding: 10px;
         font-size: 20px;

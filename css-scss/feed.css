@@ -23,7 +23,6 @@ a {
 }
 
 .container {
-  max-width: 1193.5px;
   width: 83%;
   margin: 0 auto;
 }
@@ -40,7 +39,57 @@ a {
           justify-content: space-between;
 }
 
-button {
+button,
+input {
+  font-family: 'Polly Rounded';
+}
+
+li {
+  list-style-type: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  font-size: 13px;
+  line-height: 20px;
+  font-stretch: condensed;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: 'Polly Rounded';
+  color: #595959;
+}
+
+a {
+  color: #595959;
+  text-decoration: none;
+  font-family: 'Polly Rounded';
+}
+
+.container {
+  width: 83%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+button,
+input {
   font-family: 'Polly Rounded';
 }
 
@@ -51,6 +100,11 @@ li {
 header {
   background-color: #0050B3;
   color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 5000;
   -webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.15));
           filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.15));
 }
@@ -66,7 +120,7 @@ header .container .search_plate {
   letter-spacing: 0.7px;
   color: #bfbfbf;
   padding: 5px 30px 5px 12px;
-  background-image: url(./images/search-icon.svg);
+  background-image: url(../images/search-icon.svg);
   background-repeat: no-repeat;
   background-position-x: calc(100% - 9.75px);
   background-position-y: center;
@@ -94,6 +148,7 @@ header .container .search_plate::placeholder {
 header .container nav {
   width: 415px;
   max-width: 60%;
+  background-color: #0050B3;
 }
 
 header .container nav .divided {
@@ -158,15 +213,15 @@ header .container nav .icons_panel .info:hover svg path {
   fill: #fff;
 }
 
-header .container nav .icons_panel .nav_icon__focus {
+header .container nav .icons_panel .nav_icon__focus__num {
   position: relative;
 }
 
-header .container nav .icons_panel .nav_icon__focus svg path {
+header .container nav .icons_panel .nav_icon__focus__num svg path {
   fill: #fff;
 }
 
-header .container nav .icons_panel .nav_icon__focus::after {
+header .container nav .icons_panel .nav_icon__focus__num::after {
   content: "8";
   display: -webkit-box;
   display: -ms-flexbox;
@@ -188,6 +243,57 @@ header .container nav .icons_panel .nav_icon__focus::after {
   right: -10px;
   border: 1px solid #ffffff;
   color: #fff;
+}
+
+header .container nav .icons_panel .nav_icon__focus {
+  position: relative;
+}
+
+header .container nav .icons_panel .nav_icon__focus svg path {
+  fill: #fff;
+}
+
+header .container .icons_panel__submenu {
+  position: absolute;
+  display: none;
+  top: 100%;
+  right: 8.5%;
+  width: calc(415px * 0.44);
+  height: auto;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+header .container .icons_panel__submenu ul {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+header .container .icons_panel__submenu ul li {
+  width: 100%;
+}
+
+header .container .icons_panel__submenu ul li a {
+  color: #595959;
+  margin: 5px 0;
+  padding-left: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  width: 100%;
+  display: inline-block;
+}
+
+header .container .icons_panel__submenu ul li a:hover {
+  letter-spacing: 2px;
+  color: #262626;
 }
 
 .avatar {
@@ -257,8 +363,11 @@ main .container .menuSidebar .person .avatar {
   width: 24px;
 }
 
-main .container .menuSidebar .person span:first-of-type {
-  margin-right: 3px;
+main .container .menuSidebar .person .full_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 70%;
 }
 
 main .container .menuSidebar .sidebar_link {
@@ -377,10 +486,19 @@ main .container .mainFeed .createPost .body .bottom button:last-of-type {
 
 main .container .mainFeed .createPost .body .bottom button:last-of-type svg {
   margin: 0;
+  height: 22px;
 }
 
 main .container .mainFeed .createPost .body .bottom button:hover {
   background: #ebebeb;
+}
+
+main .container .mainFeed .createPost .body .bottom button#send_post {
+  background-color: #1890ff;
+}
+
+main .container .mainFeed .createPost .body .bottom button#send_post:hover {
+  background-color: #0050B3;
 }
 
 main .container .mainFeed .Post {
@@ -548,9 +666,10 @@ main .container .rightSide .stories .body .story {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  cursor: default;
 }
 
-main .container .rightSide .stories .body .story:hover image {
+main .container .rightSide .stories .body .story:hover .image {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
@@ -593,6 +712,9 @@ main .container .rightSide .birthday {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 16px;
 }
 
@@ -601,13 +723,18 @@ main .container .rightSide .birthday:last-of-type {
 }
 
 main .container .rightSide .birthday svg {
-  margin-right: 8px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-main .container .rightSide .birthday .title {
+main .container .rightSide .birthday p {
+  margin-left: 8px;
+}
+
+main .container .rightSide .birthday p .title {
   color: #0050B3;
+  white-space: nowrap;
+  margin: 0;
 }
 
 main .container .rightSide .birthday:hover svg {
@@ -679,6 +806,7 @@ main .container .rightSide .page_stat .body .statistics .type {
 }
 
 main .container .rightSide .page_stat .body .statistics .type li {
+  cursor: pointer;
   text-align: center;
   width: 33.3%;
   padding: 8px 10px;
@@ -697,6 +825,7 @@ main .container .rightSide .page_stat .body .statistics .type li:nth-of-type(2).
   outline-color: #0050B3;
   color: #0050B3;
   z-index: 5;
+  background-color: #cde4ff;
 }
 
 main .container .rightSide .page_stat .body .statistics .type li:first-of-type {
@@ -707,6 +836,7 @@ main .container .rightSide .page_stat .body .statistics .type li:first-of-type.f
   border-color: #0050B3;
   color: #0050B3;
   z-index: 5;
+  background-color: #cde4ff;
 }
 
 main .container .rightSide .page_stat .body .statistics .type li:last-of-type {
@@ -717,28 +847,70 @@ main .container .rightSide .page_stat .body .statistics .type li:last-of-type.fo
   border-color: #0050B3;
   color: #0050B3;
   z-index: 5;
+  background-color: #cde4ff;
 }
 
-main .container .rightSide .page_stat .body .statistics .type li:hover {
+main .container .rightSide .page_stat .body .statistics .type li:not(.focus):hover {
   color: #262626;
   z-index: 3;
 }
 
-main .container .rightSide .page_stat .body .statistics .type li:hover:last-of-type, main .container .rightSide .page_stat .body .statistics .type li:hover:first-of-type {
+main .container .rightSide .page_stat .body .statistics .type li:not(.focus):hover:last-of-type, main .container .rightSide .page_stat .body .statistics .type li:not(.focus):hover:first-of-type {
   border-color: #262626;
+  background-color: #dfdfdf;
 }
 
-main .container .rightSide .page_stat .body .statistics .type li:hover:nth-of-type(2) {
+main .container .rightSide .page_stat .body .statistics .type li:not(.focus):hover:nth-of-type(2) {
   outline-color: #262626;
+  background-color: #dfdfdf;
 }
 
-main .container .rightSide .page_stat .body .statistics .result p {
+main .container .rightSide .page_stat .body .statistics .result div {
+  display: none;
+}
+
+main .container .rightSide .page_stat .body .statistics .result div.focus_ {
+  display: block !important;
+}
+
+main .container .rightSide .page_stat .body .statistics .result div p {
   text-align: center;
 }
 
-main .container .rightSide .page_stat .body .statistics .result p:first-of-type {
+main .container .rightSide .page_stat .body .statistics .result div p:first-of-type {
   font-size: 24px;
   line-height: 32px;
   color: #262626;
+}
+
+.elipsis {
+  cursor: pointer;
+}
+
+@media (max-width: 1245px) {
+  main .container .mainFeed .createPost .body .bottom button {
+    padding: 6px 9px;
+  }
+  main .container .mainFeed .createPost .body .bottom button svg {
+    width: 15px;
+    height: 15px;
+  }
+  main .container .menuSidebar .sidebar_link svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 1115px) {
+  main .container .mainFeed .createPost .body .bottom {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 92px;
+  }
+  main .container .mainFeed .createPost .body .bottom button:first-of-type,
+  main .container .mainFeed .createPost .body .bottom button:nth-of-type(2),
+  main .container .mainFeed .createPost .body .bottom button:nth-of-type(3) {
+    width: 125px;
+  }
 }
 /*# sourceMappingURL=feed.css.map */

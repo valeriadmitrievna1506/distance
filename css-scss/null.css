@@ -22,7 +22,6 @@ a {
 }
 
 .container {
-  max-width: 1193.5px;
   width: 83%;
   margin: 0 auto;
 }
@@ -39,7 +38,8 @@ a {
           justify-content: space-between;
 }
 
-button {
+button,
+input {
   font-family: 'Polly Rounded';
 }
 

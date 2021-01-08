@@ -8,7 +8,7 @@
     />
     <title>Distance</title>
     <link rel="stylesheet" href="./font/stylesheet.css" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./css-scss/index.css" />
   </head>
   <body>
     <header>
@@ -19,14 +19,16 @@
     <main>
       <div class="miniform">
         <p class="title">Welcome Here!</p>
-        <div class="form">
+          <form action="./feed.html" class="form">
             <label for="Fname">You First Name:</label>
-            <input type="text" id="Fname" name="Fname">
+            <input required type="text" id="Fname" name="Fname">
             <label for="Lname">You Last Name:</label>
-            <input type="text" id="Lname" name="Lname">
-            <a href="./feed.html" id="go_button">GO!</a>
-        </div>
+            <input required type="text" id="Lname" name="Lname">
+            <button type="submit" id="go_button">GO</button>
+          </form>
       </div>
     </main>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>

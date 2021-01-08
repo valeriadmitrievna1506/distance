@@ -1,0 +1,25 @@
+@media (max-width: 1245px) {
+  main .container .mainFeed .createPost .body .bottom button {
+    padding: 6px 9px;
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  main .container .menuSidebar .sidebar_link svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 1115px) {
+  main .container .mainFeed .createPost .body .bottom {
+    flex-wrap: wrap;
+    height: 92px;
+    button:first-of-type,
+    button:nth-of-type(2),
+    button:nth-of-type(3) {
+      width: 125px;
+    }
+  }
+}

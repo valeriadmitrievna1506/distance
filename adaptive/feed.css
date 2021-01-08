@@ -1,0 +1,27 @@
+@media (max-width: 1245px) {
+  main .container .mainFeed .createPost .body .bottom button {
+    padding: 6px 9px;
+  }
+  main .container .mainFeed .createPost .body .bottom button svg {
+    width: 15px;
+    height: 15px;
+  }
+  main .container .menuSidebar .sidebar_link svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 1115px) {
+  main .container .mainFeed .createPost .body .bottom {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    height: 92px;
+  }
+  main .container .mainFeed .createPost .body .bottom button:first-of-type,
+  main .container .mainFeed .createPost .body .bottom button:nth-of-type(2),
+  main .container .mainFeed .createPost .body .bottom button:nth-of-type(3) {
+    width: 125px;
+  }
+}
+/*# sourceMappingURL=feed.css.map */
